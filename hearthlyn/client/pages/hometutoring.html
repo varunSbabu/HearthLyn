@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HearthLyn • Home Tutoring in Bangalore</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* ===== Global ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Poppins',sans-serif;
+      color:#333;
+      background:#f0f8ff;
+      line-height:1.6;
+    }
+    .container {
+      width:90%; max-width:1200px; margin:2rem auto;
+    }
+    h1, h2 {
+      color:#004aad;
+    }
+    a { text-decoration:none; }
+
+    /* ===== Header ===== */
+    header {
+      background:#e6f0ff;
+      padding:1rem 0;
+      box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    }
+    header .container {
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .logo {
+      font-size:1.6rem; font-weight:700; color:#004aad;
+    }
+    nav ul {
+      list-style:none; display:flex; gap:1.5rem;
+    }
+    nav a {
+      color:#333; font-weight:500; transition:color .2s;
+    }
+    nav a:hover { color:#004aad; }
+
+    /* ===== Hero ===== */
+    .hero {
+      text-align:center; padding:3rem 0;
+    }
+    .hero h1 {
+      font-size:2.5rem; margin-bottom:1rem;
+    }
+    .hero p {
+      font-size:1.1rem; max-width:800px;
+      margin:0 auto; color:#555;
+    }
+
+    /* ===== Search ===== */
+    .search-bar {
+      display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin-top:2rem;
+    }
+    .search-bar input {
+      padding:.5rem 1rem; border:2px solid #004aad; border-radius:4px;
+      width:200px; font-size:1rem;
+    }
+    .search-bar button {
+      padding:.5rem 1rem; border:none; border-radius:4px;
+      background:#004aad; color:#fff; font-weight:600;
+      cursor:pointer; transition:background .3s;
+    }
+    .search-bar button:hover {
+      background:#003580;
+    }
+
+    /* ===== Profiles Grid ===== */
+    .profiles {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:2rem;
+      margin-top:2rem;
+    }
+    .card {
+      background:#fff;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      transition:transform .3s,box-shadow .3s;
+    }
+    .card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin: 0 auto; display: block; margin-top: 10px;
+    }
+    .card-body {
+      padding:1rem;
+    }
+    .card-body h3 {
+      margin-bottom:.5rem;
+      font-size:1.3rem;
+      color:#004aad;
+    }
+    .card-body p {
+      font-size:.95rem; color:#555; margin-bottom:.5rem;
+    }
+    .rating {
+      color:#007bff; margin-bottom:1rem;
+    }
+    .btn-contact {
+      display:inline-block;
+      background:#004aad; color:#fff;
+      padding:.5rem 1rem; border-radius:4px;
+      font-weight:600; transition:background .3s;
+    }
+    .btn-contact:hover {
+      background:#003580;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align:center; padding:2rem 0;
+      color:#777; font-size:.9rem;
+      background:#e6f0ff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="../index.html" class="logo" style="display: flex; align-items: center; text-decoration: none; color: inherit;">
+        <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" style="height: 30px; margin-right: 10px;">
+        <span>HearthLyn</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="home-tutoring.html">Tutoring</a></li>
+          <li><a href="baby-care.html">Baby Care</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Home Tutoring Services in Bangalore</h1>
+      <p>
+        Personalized one-on-one and small group tutoring for LKG through 9th
+        standard—taught by verified, passionate homemakers in safe home settings.
+      </p>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input id="pincodeInput" type="text" placeholder="Enter Pincode" />
+        <button onclick="searchByPincode()">Search</button>
+        <button onclick="findNearMe()">Find Near Me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profiles -->
+  <section class="container profiles" id="profilesContainer">
+    <!-- Cards injected by JS -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 HearthLyn — Empowering Homemakers, Enriching Communities
+  </footer>
+
+  <script>
+    // Sample tutor data
+    const tutors = [
+      {
+        id: 1,
+        name: "Mrs. Anjali Sharma",
+        subject: "Mathematics & Science",
+        location: "Indiranagar",
+        pincode: "560038",
+        lat: 12.9784, lng: 77.6405,
+        email: "anjali@example.com",
+        rating: 4.5,
+        img: "../assets/images/aunty.jpg"
+      },
+      {
+        id: 2,
+        name: "Mrs. Geetha R.",
+        subject: "English & Social Studies",
+        location: "Jayanagar",
+        pincode: "560041",
+        lat: 12.9352, lng: 77.6188,
+        email: "geetha@example.com",
+        rating: 4.0,
+        img: "../assets/images/aunty4.jpg"
+      },
+      {
+        id: 3,
+        name: "Mrs. Latha N.",
+        subject: "Physics & Chemistry",
+        location: "Koramangala",
+        pincode: "560095",
+        lat: 12.9350, lng: 77.6245,
+        email: "latha@example.com",
+        rating: 4.0,
+        img: "../assets/images/aunty5.jpg"
+      }
+    ];
+
+    const container = document.getElementById('profilesContainer');
+
+    function render(list) {
+      container.innerHTML = '';
+      if (!list.length) {
+        container.innerHTML = '<p style="text-align:center; width:100%;">No tutors found.</p>';
+        return;
+      }
+      list.forEach(t => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${t.img}" alt="${t.name}">
+          <div class="card-body">
+            <h3>${t.name}</h3>
+            <p><strong>Experience:</strong> ${t.subject}</p>
+            <p><strong>Location:</strong> ${t.location}</p>
+            <div class="rating">
+              ${'★'.repeat(Math.floor(t.rating))}${t.rating % 1 ? '½' : ''} (${t.rating})
+            </div>
+            <a href="mailto:${t.email}" class="btn-contact">Contact</a>
+          </div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function searchByPincode() {
+      const pin = document.getElementById('pincodeInput').value.trim();
+      render(tutors.filter(t => t.pincode === pin));
+    }
+
+    function getDistance(lat1, lon1, lat2, lon2) {
+      const R = 6371;
+      const dLat = (lat2-lat1)*Math.PI/180;
+      const dLon = (lon2-lon1)*Math.PI/180;
+      const a = Math.sin(dLat/2)**2 +
+                Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180) *
+                Math.sin(dLon/2)**2;
+      return 2*R*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    }
+
+    function findNearMe() {
+      if (!navigator.geolocation) {
+        alert('Geolocation not supported.');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(pos => {
+        const { latitude, longitude } = pos.coords;
+        const nearby = tutors.filter(t =>
+          getDistance(latitude, longitude, t.lat, t.lng) <= 10
+        );
+        render(nearby);
+      },() => alert('Unable to retrieve your location.'));
+    }
+
+    // Initial load
+    render(tutors);
+  </script>
+</body>
+</html>

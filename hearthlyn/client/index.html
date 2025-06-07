@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HearthLyn • Empowering Homes, Serving Hearts</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- FontAwesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-p3LkXrgG1aqXnDhWlX9zP+1fdib4HyCrGDlUYhM8CsW0s3ys0h31fefUoasZoCCgqdk0wIjOZl1XQ/SZ3+DmZA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="assets/styles/main.css" />
+
+  <style>
+    /* WhatsApp Button Styles */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 0;
+      border: none;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+    }
+
+    .whatsapp-float img {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+    }
+
+    @media screen and (max-width: 767px) {
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+      }
+      .whatsapp-float img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/917483528884" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <img src="assets/images/WhatsApp.png" alt="WhatsApp" />
+  </a>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="./index.html" class="logo">
+        <img src="assets/images/logo.jpg" alt="HearthLyn Logo" />
+        <span>HearthLyn</span>
+      </a>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li class="services-dropdown">
+            <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+            <div class="services-dropdown-content">
+              <a href="./pages/hometutoring.html"><i class="fas fa-chalkboard-teacher"></i> Home Tutoring</a>
+              <a href="./pages/babycare.html"><i class="fas fa-baby"></i> Child Care</a>
+              <a href="./pages/homefood.html"><i class="fas fa-utensils"></i> Home Food</a>
+              <a href="./pages/tiloring.html"><i class="fas fa-tshirt"></i> Tailoring</a>
+            </div>
+          </li>
+          <li><a href="pages/about.html">About Us</a></li>
+          <li><a href="../client/pages/contactus.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="pages/login.html" class="btn btn-outline">Login</a>
+        <!-- Mobile Menu Toggle -->
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-text">
+        <h1>Empowering Homes, Serving Hearts</h1>
+        <p>
+          HearthLyn connects you with skilled and passionate homemakers offering
+          trusted local services—baby care, tuition, tailoring, and delicious
+          home-cooked meals—all from the comfort of their homes to yours.
+        </p>
+        <div class="hero-buttons">
+          <a href="pages/join.html" class="join-btn">
+            <i class="fas fa-user-plus"></i> Join Us
+          </a>
+          <a href="pages/nearby.html" class="connect-nearby-btn">
+            <i class="fas fa-location-dot"></i> Connect Nearby
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="assets/images/women.jpg" alt="HearthLyn Hero" class="float-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- "WHY CHOOSE US" / FEATURES SECTION -->
+  <section id="services" class="features-section">
+    <div class="container">
+      <h2 class="section-title">Why Choose HearthLyn?</h2>
+      <div class="features-grid">
+        <!-- FEATURE 1 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-user-check"></i>
+          </div>
+          <h3>Verified &amp; Trusted</h3>
+          <p>
+            Every homemaker is background-checked and vetted. We ensure you get
+            genuine, responsible, and professional service from day one.
+          </p>
+        </div>
+
+        <!-- FEATURE 2 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <h3>Transparent Pricing</h3>
+          <p>
+            You only pay what you see. No hidden fees—just clear, honest rates
+            so you can plan your budget with confidence.
+          </p>
+        </div>
+
+        <!-- FEATURE 3 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>Dedicated Support</h3>
+          <p>
+            Our customer-care team is here 24/7. Whether it's a simple question
+            or an urgent requirement, we're only a call or chat away.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE GALLERY SECTION -->
+  <section class="image-gallery">
+    <div class="container">
+      <h2 class="section-title">Our Services in Action</h2>
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="assets/images/home-tutor-Bangalore.jpg" alt="Home Tutoring Services" />
+          <div class="gallery-caption">
+            <h3>Expert Home Tutoring</h3>
+            <p>Personalized learning experience in the comfort of your home</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/home-food.jpg" alt="Home Cooked Food Services" />
+          <div class="gallery-caption">
+            <h3>Delicious Home-Cooked Meals</h3>
+            <p>Nutritious and authentic meals prepared with love</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/child-care.jpg" alt="Child Care Services" />
+          <div class="gallery-caption">
+            <h3>Professional Child Care</h3>
+            <p>Safe and nurturing environment for your little ones</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/images/tilor.jpg" alt="Tailoring Services" />
+          <div class="gallery-caption">
+            <h3>Expert Tailoring Services</h3>
+            <p>Custom-made clothing with attention to detail</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../client/assets/images/logo.jpg" alt="HearthLyn Logo" class="footer-logo-small">
+          <p>Transforming Home Care Through Technology and Trust</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../index.html#hero">Home</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Home Care</a></li>
+            <li><a href="#">Nursing Care</a></li>
+            <li><a href="#">Companionship</a></li>
+            <li><a href="#">Meal Preparation</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> +91 748352884</li>
+            <li><i class="fas fa-envelope"></i> varunbabu098@gmail.com</li>
+            <li><i class="fas fa-map-marker-alt"></i>  BMS Institute of Technology and Management, Doddaballapur Main Road, Avalahalli, Yelahanka, Bangalore - 560064</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 HearthLyn. All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="assets/scripts/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HearthLyn • Baby Care Services in Bangalore</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* ===== Global ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Poppins',sans-serif;
+      color:#333;
+      line-height:1.6;
+      background:#fff0f5;
+    }
+    .container {
+      width:90%; max-width:1200px; margin:2rem auto;
+    }
+    h1, h2 {
+      color:#d63384;
+    }
+    a { text-decoration:none; }
+
+    /* ===== Header ===== */
+    header {
+      background:#ffe3ec;
+      padding:1rem 0;
+      box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    }
+    header .container {
+      display:flex; align-items:center; justify-content:space-between;
+    }
+    .logo {
+      font-size:1.6rem; font-weight:700; color:#d63384;
+    }
+    nav ul {
+      list-style:none; display:flex; gap:1.5rem;
+    }
+    nav a {
+      color:#333; font-weight:500; transition:color .2s;
+    }
+    nav a:hover { color:#d63384; }
+
+    /* ===== Hero ===== */
+    .hero {
+      text-align:center; padding:3rem 0;
+    }
+    .hero h1 {
+      font-size:2.5rem; margin-bottom:1rem;
+    }
+    .hero p {
+      font-size:1.1rem; max-width:800px;
+      margin:0 auto; color:#555;
+    }
+
+    /* ===== Search ===== */
+    .search-bar {
+      display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin-top:2rem;
+    }
+    .search-bar input {
+      padding:.5rem 1rem; border:2px solid #d63384; border-radius:4px;
+      width:200px; font-size:1rem;
+    }
+    .search-bar button {
+      padding:.5rem 1rem; border:none; border-radius:4px;
+      background:#d63384; color:#fff; font-weight:600;
+      cursor:pointer; transition:background .3s;
+    }
+    .search-bar button:hover {
+      background:#b82b6a;
+    }
+
+    /* ===== Profiles Grid ===== */
+    .profiles {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:2rem;
+      margin-top:2rem;
+    }
+    .card {
+      background:#fff;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      transition:transform .3s,box-shadow .3s;
+    }
+    .card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width:100%; height:180px; object-fit:cover;
+    }
+    .card-body {
+      padding:1rem;
+    }
+    .card-body h3 {
+      margin-bottom:.5rem;
+      font-size:1.3rem;
+      color:#d63384;
+    }
+    .card-body p {
+      font-size:.95rem; color:#555; margin-bottom:.5rem;
+    }
+    .rating {
+      color:#ff85a2; margin-bottom:1rem;
+    }
+    .btn-contact {
+      display:inline-block;
+      background:#d63384; color:#fff;
+      padding:.5rem 1rem; border-radius:4px;
+      font-weight:600; transition:background .3s;
+    }
+    .btn-contact:hover {
+      background:#b82b6a;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align:center; padding:2rem 0;
+      color:#777; font-size:.9rem;
+    }
+
+    .provider-card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .provider-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 15px;
+      border: 3px solid #FF69B4;
+    }
+
+    .provider-info {
+      width: 100%;
+    }
+
+    .provider-info h3 {
+      margin: 0 0 10px 0;
+      color: #333;
+    }
+
+    .provider-info p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .contact-btn {
+      background: #FF69B4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: #FF1493;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="../index.html" class="logo" style="display: flex; align-items: center; text-decoration: none; color: #d63384;">
+        <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" style="height: 30px; margin-right: 10px;">
+        <span>HearthLyn</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="home-tutoring.html">Tutoring</a></li>
+          <li><a href="baby-care.html">Baby Care</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Home-Based Baby Care in Bangalore</h1>
+      <p>
+        Trusted, experienced housewives offering compassionate baby-care services
+        in safe, hygienic home environments—right in your neighborhood.
+      </p>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input id="pincodeInput" type="text" placeholder="Enter Pincode" />
+        <button onclick="searchByPincode()">Search</button>
+        <button onclick="findNearMe()">Find Near Me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profiles -->
+  <section class="container profiles" id="profilesContainer">
+    <!-- Cards will be injected by JavaScript -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 HearthLyn — Empowering Homemakers, Enriching Communities
+  </footer>
+
+  <script>
+    // Sample provider data with pincodes and coordinates
+    const providers = [
+      {
+        id: 1,
+        name: "Mrs. Anjali Sharma",
+        experience: "8 years of professional baby care",
+        location: "Indiranagar",
+        pincode: "560038",
+        lat: 12.9784, lng: 77.6405,
+        email: "anjali@example.com",
+        rating: 4.5,
+        img: "../assets/images/aunty9.jpg"
+      },
+      {
+        id: 2,
+        name: "Mrs. Geetha R.",
+        experience: "5 years in newborn and toddler care",
+        location: "Jayanagar",
+        pincode: "560041",
+        lat: 12.9352, lng: 77.6188,
+        email: "geetha@example.com",
+        rating: 4.0,
+        img: "../assets/images/aunty10.jpg"
+      },
+      {
+        id: 3,
+        name: "Mrs. Latha N.",
+        experience: "10 years, certified childcare trainer",
+        location: "Koramangala",
+        pincode: "560095",
+        lat: 12.9350, lng: 77.6245,
+        email: "latha@example.com",
+        rating: 4.0,
+        img: "../assets/images/aunty11.jpg"
+      }
+    ];
+
+    const profilesContainer = document.getElementById('profilesContainer');
+
+    // Render a list of provider cards
+    function renderProviders(list) {
+      profilesContainer.innerHTML = '';
+      if (list.length === 0) {
+        profilesContainer.innerHTML = '<p style="text-align:center; width:100%;">No providers found.</p>';
+        return;
+      }
+      list.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = createProviderCard(p);
+        profilesContainer.appendChild(card);
+      });
+    }
+
+    // Filter by pincode
+    function searchByPincode() {
+      const pin = document.getElementById('pincodeInput').value.trim();
+      const filtered = providers.filter(p => p.pincode === pin);
+      renderProviders(filtered);
+    }
+
+    // Haversine formula for distance in km
+    function getDistance(lat1, lon1, lat2, lon2) {
+      const R = 6371; // km
+      const dLat = (lat2 - lat1) * Math.PI/180;
+      const dLon = (lon2 - lon1) * Math.PI/180;
+      const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) *
+                Math.sin(dLon/2) * Math.sin(dLon/2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+      return R * c;
+    }
+
+    // Find providers near user location (<10 km)
+    function findNearMe() {
+      if (!navigator.geolocation) {
+        alert('Geolocation not supported.');
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(pos => {
+        const { latitude, longitude } = pos.coords;
+        const nearby = providers.filter(p => {
+          return getDistance(latitude, longitude, p.lat, p.lng) <= 10;
+        });
+        renderProviders(nearby);
+      }, () => {
+        alert('Unable to retrieve your location.');
+      });
+    }
+
+    function createProviderCard(provider) {
+      return `
+        <div class="provider-card">
+          <div class="provider-image">
+            <img src="${provider.img}" alt="${provider.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+          </div>
+          <div class="provider-info">
+            <h3>${provider.name}</h3>
+            <p><i class="fas fa-briefcase"></i> ${provider.experience}</p>
+            <p><i class="fas fa-map-marker-alt"></i> ${provider.location}, ${provider.pincode}</p>
+            <p><i class="fas fa-star"></i> ${provider.rating} Rating</p>
+            <button onclick="showProviderDetails(${provider.id})" class="contact-btn">Contact Us</button>
+          </div>
+        </div>
+      `;
+    }
+
+    // Initial render: show all
+    renderProviders(providers);
+  </script>
+</body>
+</html>
+
+
+
+

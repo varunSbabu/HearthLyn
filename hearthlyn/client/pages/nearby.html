@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Nearby Providers - HearthLyn</title>
+    <link rel="stylesheet" href="../assets/styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Leaflet CSS for maps -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <!-- Navigation -->
+    <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <img src="assets/images/logo.jpg" alt="HearthLyn Logo" />
+        <span>HearthLyn</span>
+      </a>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li class="services-dropdown">
+            <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+            <div class="services-dropdown-content">
+              <a href="#services"><i class="fas fa-chalkboard-teacher"></i> Home Tutoring</a>
+              <a href="#services"><i class="fas fa-baby"></i> Child Care</a>
+              <a href="#services"><i class="fas fa-utensils"></i> Home Food</a>
+              <a href="#services"><i class="fas fa-tshirt"></i> Tailoring</a>
+            </div>
+          </li>
+          <li><a href="pages/about.html">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+          <button class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+        </button>
+        <a href="pages/login.html" class="btn btn-outline">Login</a>
+        <!-- Mobile Menu Toggle -->
+        <button class="hamburger" id="hamburger">
+
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+    <!-- Nearby Section -->
+    <section class="nearby-section">
+        <div class="container">
+            <h1>Find Service Providers Near You</h1>
+            <p class="lead">Connect with trusted care providers in your area</p>
+            
+            <div class="location-search">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Enter your location or use current location" id="location-input">
+                    <button class="location-btn" onclick="getCurrentLocation()">
+                        <i class="fas fa-location-dot"></i> Use Current Location
+                    </button>
+                </div>
+            </div>
+
+            <div class="nearby-content">
+                <div class="map-container" id="map"></div>
+                <div class="providers-list">
+                    <h2>Available Providers</h2>
+                    <div class="providers-grid">
+                        <!-- Provider cards will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+  <footer id="contact" class="footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" class="footer-logo-small">
+          <p>Transforming Home Care Through Technology and Trust</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../index.html#hero">Home</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Home Care</a></li>
+            <li><a href="#">Nursing Care</a></li>
+            <li><a href="#">Companionship</a></li>
+            <li><a href="#">Meal Preparation</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> +91 748352884</li>
+            <li><i class="fas fa-envelope"></i> varunbabu098@gmail.com</li>
+            <li><i class="fas fa-map-marker-alt"></i>  BMS Institute of Technology and Management, Doddaballapur Main Road, Avalahalli, Yelahanka, Bangalore - 560064</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 HearthLyn. All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Leaflet JS for maps -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize map
+        const map = L.map('map').setView([0, 0], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Get current location
+        function getCurrentLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const { latitude, longitude } = position.coords;
+                        map.setView([latitude, longitude], 13);
+                        L.marker([latitude, longitude]).addTo(map)
+                            .bindPopup('Your Location')
+                            .openPopup();
+                    },
+                    (error) => {
+                        console.error('Error getting location:', error);
+                        alert('Unable to get your location. Please enter it manually.');
+                    }
+                );
+            } else {
+                alert('Geolocation is not supported by your browser.');
+            }
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            
+            const themeIcon = document.querySelector('.theme-toggle i');
+            themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+    </script>
+</body>
+</html> 

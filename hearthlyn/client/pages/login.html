@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - HearthLyn</title>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- FontAwesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-p3LkXrgG1aqXnDhWlX9zP+1fdib4HyCrGDlUYhM8CsW0s3ys0h31fefUoasZoCCgqdk0wIjOZl1XQ/SZ3+DmZA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="../assets/styles/main.css" />
+
+  <style>
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      padding: 20px;
+    }
+
+    .login-box {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .login-logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-header h2 {
+      color: var(--text-color);
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .login-header p {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .login-form .form-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .login-form .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .login-form .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #eee;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .login-form .form-group input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+    }
+
+    .login-form .form-group i {
+      position: absolute;
+      right: 15px;
+      top: 40px;
+      color: var(--text-light);
+    }
+
+    .login-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .remember-me input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary-color);
+    }
+
+    .forgot-password {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .forgot-password:hover {
+      color: var(--secondary-color);
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .login-button:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+
+    .login-footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .login-footer a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .login-footer a:hover {
+      color: var(--secondary-color);
+    }
+
+    .login-tabs {
+      display: flex;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #eee;
+    }
+
+    .login-tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      color: var(--text-light);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .login-tab.active {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .login-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary-color);
+    }
+
+    .login-tab:hover {
+      color: var(--primary-color);
+    }
+
+    .login-tab i {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 30px 20px;
+      }
+
+      .login-tab i {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" />
+        <span>HearthLyn</span>
+      </a>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="../index.html#hero">Home</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="../index.html#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <!-- Mobile Menu Toggle -->
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- AUTH SECTION -->
+  <section class="auth-section">
+    <div class="container">
+      <div class="login-container">
+        <div class="login-box">
+          <div class="login-header">
+            <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" class="login-logo">
+            <h2>Welcome Back</h2>
+            <p>Please login to your account</p>
+          </div>
+
+          <div class="login-tabs">
+            <div class="login-tab active" onclick="switchTab('user')">
+              <i class="fas fa-user"></i> User
+            </div>
+            <div class="login-tab" onclick="switchTab('provider')">
+              <i class="fas fa-user-md"></i> Provider
+            </div>
+            <div class="login-tab" onclick="switchTab('admin')">
+              <i class="fas fa-shield-alt"></i> Admin
+            </div>
+          </div>
+
+          <form id="loginForm" class="login-form">
+            <input type="hidden" id="role" name="role" value="user">
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+              <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" required>
+              <i class="fas fa-lock"></i>
+            </div>
+
+            <div class="login-options">
+              <label class="remember-me">
+                <input type="checkbox" name="remember">
+                Remember me
+              </label>
+              <a href="forgot-password.html" class="forgot-password">Forgot Password?</a>
+            </div>
+
+            <button type="submit" class="login-button">Login</button>
+          </form>
+
+          <div class="login-footer">
+            Don't have an account? <a href="register.html">Register Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- FOOTER -->
+ <footer id="contact" class="footer">
+  <div class="container footer-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" class="footer-logo-small">
+        <p>Transforming Home Care Through Technology and Trust</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="../index.html#hero">Home</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#">Home Care</a></li>
+          <li><a href="#">Nursing Care</a></li>
+          <li><a href="#">Companionship</a></li>
+          <li><a href="#">Meal Preparation</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><i class="fas fa-phone"></i> +91 748352884</li>
+          <li><i class="fas fa-envelope"></i> varunbabu098@gmail.com</li>
+          <li><i class="fas fa-map-marker-alt"></i>  BMS Institute of Technology and Management, Doddaballapur Main Road, Avalahalli, Yelahanka, Bangalore - 560064</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 HearthLyn. All Rights Reserved.</p>
+      <div class="footer-legal">
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- Main JavaScript -->
+  <script src="../assets/scripts/main.js"></script>
+
+  <script>
+    function switchTab(role) {
+      // Update active tab
+      document.querySelectorAll('.login-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+
+      // Update hidden role input
+      document.getElementById('role').value = role;
+
+      // Update form action based on role
+      const form = document.getElementById('loginForm');
+      form.action = `/api/auth/login/${role}`;
+    }
+
+    // Handle form submission
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = {
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        role: document.getElementById('role').value
+      };
+
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Store token and role
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('userRole', data.user.role);
+
+          // Redirect based on role
+          if (data.user.role === 'admin') {
+            window.location.href = '/admin/dashboard.html';
+          } else if (data.user.role === 'provider') {
+            window.location.href = '/provider/dashboard.html';
+          } else {
+            window.location.href = '/index.html';
+          }
+        } else {
+          alert(data.message || 'Login failed');
+        }
+      } catch (error) {
+        console.error('Login error:', error);
+        alert('An error occurred during login');
+      }
+    });
+  </script>
+</body>
+</html>

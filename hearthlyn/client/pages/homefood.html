@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HearthLyn • Home-Cooked Food in Bangalore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* ===== Global ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Poppins',sans-serif;
+      background:#fff9e6;
+      color:#333;
+      line-height:1.6;
+    }
+    .container { width:90%; max-width:1200px; margin:2rem auto; }
+    h1, h2 { color:#f9a825; }
+    a { text-decoration:none; }
+
+    /* ===== Header ===== */
+    header {
+      background:#fff3e0; padding:1rem 0;
+      box-shadow:0 2px 4px rgba(0,0,0,0.1);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; }
+    .logo { font-size:1.6rem; font-weight:700; color:#f9a825; }
+    nav ul { list-style:none; display:flex; gap:1.5rem; }
+    nav a { color:#333; font-weight:500; transition:color .2s; }
+    nav a:hover { color:#f9a825; }
+
+    /* ===== Hero ===== */
+    .hero {
+      text-align:center; padding:3rem 0;
+      background:#fff8e1;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
+    .hero p { font-size:1.1rem; max-width:800px; margin:0 auto 2rem; color:#555; }
+    .hero::before {
+      content:""; position:absolute; top:0; right:0; width:300px; height:100%;
+      background: url('https://via.placeholder.com/300x400.png?text=Food') center/cover no-repeat;
+      opacity:0.15; animation: float 6s ease-in-out infinite;
+    }
+
+    /* ===== Search ===== */
+    .search-bar { display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; }
+    .search-bar input {
+      padding:.5rem 1rem; border:2px solid #f9a825; border-radius:4px;
+      width:200px; font-size:1rem;
+    }
+    .search-bar button {
+      padding:.5rem 1rem; border:none; border-radius:4px;
+      background:#f9a825; color:#fff; font-weight:600;
+      cursor:pointer; transition:background .3s;
+    }
+    .search-bar button:hover { background:#f7b600; }
+
+    /* ===== Profiles Grid ===== */
+    .profiles {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:2rem; margin-top:2rem;
+    }
+    .card {
+      background:#fff; border-radius:8px; overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      transition:transform .3s,box-shadow .3s;
+    }
+    .card:hover { transform:translateY(-6px); box-shadow:0 8px 20px rgba(0,0,0,0.1); }
+    .card img {
+      width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin: 0 auto; display: block; margin-top: 10px;
+    }
+    .card-body { padding:1rem; }
+    .card-body h3 {
+      margin-bottom:.5rem; font-size:1.3rem; color:#f9a825;
+    }
+    .card-body p { font-size:.95rem; color:#555; margin-bottom:.5rem; }
+    .rating { color:#ffca28; margin-bottom:1rem; }
+    .btn-contact {
+      display:inline-block; background:#f9a825; color:#fff;
+      padding:.5rem 1rem; border-radius:4px; font-weight:600;
+      transition:background .3s;
+    }
+    .btn-contact:hover { background:#f7b600; }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align:center; padding:2rem 0; background:#fff3e0;
+      color:#777; font-size:.9rem;
+    }
+
+    /* ===== Animations ===== */
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes fadeIn {
+      from { opacity:0; transform: translateY(20px); }
+      to { opacity:1; transform: translateY(0); }
+    }
+
+    /* ===== Responsive ===== */
+    @media(max-width:992px){ .hero h1{ font-size:2rem; } }
+    @media(max-width:480px){ nav ul{ display:none; } }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="../index.html" class="logo" style="display: flex; align-items: center; text-decoration: none; color: #f9a825;">
+        <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" style="height: 30px; margin-right: 10px;">
+        <span>HearthLyn</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="home-tutoring.html">Tutoring</a></li>
+          <li><a href="baby-care.html">Baby Care</a></li>
+          <li><a href="tailoring.html">Tailoring</a></li>
+          <li><a href="home-foods.html">Home Foods</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Delicious Home-Cooked Meals in Bangalore</h1>
+      <p>
+        Savor the warmth of home-cooked food prepared by talented homemakers in your neighborhood. Healthy, hygienic, and hassle-free!
+      </p>
+      <div class="search-bar">
+        <input id="pincodeInput" type="text" placeholder="Enter Pincode" />
+        <button onclick="searchByPincode()">Search</button>
+        <button onclick="findNearMe()">Find Near Me</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profiles -->
+  <section class="container profiles" id="profilesContainer">
+    <!-- Cards injected by JS -->
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 HearthLyn — Empowering Homemakers, Enriching Communities
+  </footer>
+
+  <script>
+    // Sample home-foods provider data
+    const cooks = [
+      {
+        id: 1,
+        name: "Mrs. Savita Rao",
+        specialty: "South Indian Thalis & Idli",
+        location: "Whitefield",
+        pincode: "560066",
+        lat: 12.9699, lng: 77.7490,
+        email: "savita@example.com",
+        rating: 4.8,
+        img: "https://via.placeholder.com/400x180.png?text=South+Indian+Thali"
+      },
+      {
+        id: 2,
+        name: "Mrs. Meena Patil",
+        specialty: "Maharashtrian Delight & Snacks",
+        location: "Jayanagar",
+        pincode: "560041",
+        lat: 12.9352, lng: 77.6188,
+        email: "meena@example.com",
+        rating: 4.6,
+        img: "https://via.placeholder.com/400x180.png?text=Maharashtrian+Snacks"
+      },
+      {
+        id: 3,
+        name: "Mrs. Anu Verma",
+        specialty: "North Indian Curries & Bread",
+        location: "Koramangala",
+        pincode: "560095",
+        lat: 12.9350, lng: 77.6245,
+        email: "anu@example.com",
+        rating: 4.7,
+        img: "https://via.placeholder.com/400x180.png?text=North+Indian+Meal"
+      }
+    ];
+
+    const container = document.getElementById('profilesContainer');
+
+    function render(list) {
+      container.innerHTML = '';
+      if (!list.length) {
+        container.innerHTML = '<p style="text-align:center; width:100%;">No providers found.</p>';
+        return;
+      }
+      list.forEach(c => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="../assets/images/aunty${c.id}.jpg" alt="${c.name}">
+          <div class="card-body">
+            <h3>${c.name}</h3>
+            <p><strong>Specialty:</strong> ${c.specialty}</p>
+            <p><strong>Location:</strong> ${c.location}</p>
+            <div class="rating">
+              ${'★'.repeat(Math.floor(c.rating))}${c.rating % 1 ? '½' : ''} (${c.rating})
+            </div>
+            <a href="mailto:${c.email}" class="btn-contact">Contact</a>
+          </div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function searchByPincode() {
+      const pin = document.getElementById('pincodeInput').value.trim();
+      render(cooks.filter(c => c.pincode === pin));
+    }
+
+    function getDistance(lat1, lon1, lat2, lon2) {
+      const R = 6371, dLat = (lat2-lat1)*Math.PI/180, dLon = (lon2-lon1)*Math.PI/180;
+      const a = Math.sin(dLat/2)**2 +
+                Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180) *
+                Math.sin(dLon/2)**2;
+      return 2*R*Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    }
+
+    function findNearMe() {
+      if (!navigator.geolocation) { alert('Geolocation not supported.'); return; }
+      navigator.geolocation.getCurrentPosition(pos => {
+        const { latitude, longitude } = pos.coords;
+        render(cooks.filter(c => getDistance(latitude, longitude, c.lat, c.lng) <= 10));
+      }, () => alert('Unable to retrieve your location.'));
+    }
+
+    // Initial render
+    render(cooks);
+  </script>
+</body>
+</html>
