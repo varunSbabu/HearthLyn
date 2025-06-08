@@ -104,6 +104,43 @@
     /* ===== Responsive ===== */
     @media(max-width:992px){ .hero h1{ font-size:2rem; } }
     @media(max-width:480px){ nav ul{ display:none; } }
+
+    /* ===== Dropdown ===== */
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-toggle {
+      cursor: pointer;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      min-width: 200px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 4px;
+      padding: 0.5rem 0;
+      z-index: 1000;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu li {
+      display: block;
+      margin: 0;
+    }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #333;
+      transition: background 0.3s;
+    }
+    .dropdown-menu a:hover {
+      background: #fff3e0;
+      color: #f9a825;
+    }
   </style>
 </head>
 <body>
@@ -119,6 +156,15 @@
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Services</a>
+            <ul class="dropdown-menu">
+              <li><a href="babycare.html">Baby Care</a></li>
+              <li><a href="homefood.html">Home Food</a></li>
+              <li><a href="hometutoring.html">Home Tutoring</a></li>
+              <li><a href="tiloring.html">Tailoring</a></li>
+            </ul>
+          </li>
           <li><a href="login.html">Login</a></li>
         </ul>
       </nav>

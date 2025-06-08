@@ -1,203 +1,302 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HearthLyn • Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us • HearthLyn</title>
+
+  <!-- Google Font -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family:'Poppins',sans-serif;
-      background:#e3f2fd;
-      color:#333;
-      line-height:1.6;
-    }
-    .container {
-      width:90%; max-width:800px; margin:3rem auto;
-      text-align:center;
-    }
-    h1 { color:#039be5; margin-bottom:1rem; }
-    p.subtitle { color:#555; margin-bottom:2rem; }
-    a { text-decoration:none; color:inherit; }
 
-    /* Theme Toggle Button */
-    .theme-toggle {
-      background: transparent;
-      border: 2px solid #039be5;
-      color: #039be5;
-      width: 40px;
-      height: 40px;
+  <!-- FontAwesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="../assets/styles/main.css" />
+  <style>
+    .contact-hero {
+      padding: 40px 0;
+      background-color: var(--card-bg);
+    }
+    
+    .contact-hero-content {
+      text-align: center;
+    }
+    
+    .contact-hero-content h1 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .contact-hero-content p {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      color: var(--text-color);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-icon {
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
+      margin: 0 auto 1rem;
+      font-size: 2rem;
     }
 
-    .theme-toggle i {
+    .contact-card h3 {
       font-size: 1.2rem;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
     }
 
-    .theme-toggle:hover {
-      background: #039be5;
-      color: #fff;
-      transform: scale(1.1);
+    .contact-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
     }
 
-    [data-theme="dark"] .theme-toggle {
-      border-color: #ffd700;
-      color: #ffd700;
+    /* Official Brand Colors */
+    .phone-icon {
+      background-color: #2563eb;
+      color: white;
     }
 
-    [data-theme="dark"] .theme-toggle:hover {
-      background: #ffd700;
-      color: #333;
+    .email-icon {
+      background-color: #ea4335;
+      color: white;
     }
 
-    /* Dark Theme Styles */
-    [data-theme="dark"] {
-      background: #1a1a1a;
-      color: #fff;
+    .whatsapp-icon {
+      background-color: #25D366;
+      color: white;
     }
 
-    [data-theme="dark"] h1 {
-      color: #ffd700;
+    .instagram-icon {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: white;
     }
 
-    [data-theme="dark"] .subtitle {
-      color: #ccc;
+    .linkedin-icon {
+      background-color: #0077B5;
+      color: white;
     }
 
-    [data-theme="dark"] .contact-item {
-      background: #2d2d2d;
+    .twitter-icon {
+      background-color: #1DA1F2;
+      color: white;
     }
 
-    [data-theme="dark"] .contact-icon {
-      color: #ffd700;
-    }
-
-    [data-theme="dark"] .contact-label {
-      color: #ffd700;
-    }
-
-    [data-theme="dark"] .contact-value {
-      color: #ccc;
-    }
-
-    .contact-grid {
-      display:grid; grid-template-columns:1fr 1fr; gap:2rem;
-    }
-    .contact-item {
-      display:flex; flex-direction:column; align-items:center;
-      background:#fff; border-radius:8px; padding:1.5rem;
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
-      opacity:0; transform: translateY(20px);
-      transition:opacity .6s ease-out, transform .6s ease-out;
-    }
-    .contact-item.visible {
-      opacity:1; transform: translateY(0);
-    }
-    .contact-icon {
-      font-size:2.5rem; color:#039be5; margin-bottom:1rem;
-      transition:transform .3s;
-    }
-    .contact-item:hover .contact-icon {
-      transform: scale(1.2);
-    }
-    .contact-label {
-      font-weight:600; margin-bottom:.5rem; color:#0277bd;
-      font-size:1.1rem;
-    }
-    .contact-value {
-      color:#555; font-size:.95rem; word-break:break-word;
-    }
-  
-    footer {
-      text-align:center; margin:4rem 0 2rem;
-      color:#777; font-size:.9rem;
-    }
-
-    @media(max-width:600px) {
-      .contact-grid { grid-template-columns:1fr; }
+    @media (max-width: 768px) {
+      .contact-hero {
+        padding: 30px 0;
+      }
+      
+      .contact-hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-grid {
+        gap: 1rem;
+        padding: 1.5rem 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Contact Us</h1>
-    <p class="subtitle">We'd love to hear from you! Reach out via any of the channels below.</p>
-
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" style="position: fixed; top: 20px; right: 20px;">
-      <i class="fas fa-moon"></i>
-    </button>
-
-    <div class="contact-grid">
-      <!-- Phone -->
-      <a href="tel:+919876543210" class="contact-item">
-        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-        <div class="contact-label">Phone</div>
-        <div class="contact-value">+91 7483528884</div>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" />
+        <span>HearthLyn</span>
       </a>
-
-      <!-- Email -->
-      <a href="mailto:support@hearthlyn.com" class="contact-item">
-        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-        <div class="contact-label">Email</div>
-        <div class="contact-value">varunbabu098@gmail.com</div>
-      </a>
-
-      <!-- WhatsApp -->
-      <a href="https://wa.me/919123456789" class="contact-item" target="_blank">
-        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-        <div class="contact-label">WhatsApp</div>
-        <div class="contact-value">+91 7483528884</div>
-      </a>
-
-      <!-- Instagram -->
-      <a href="https://instagram.com/hearthlyn_services" class="contact-item" target="_blank">
-        <div class="contact-icon"><i class="fab fa-instagram"></i></div>
-        <div class="contact-label">Instagram</div>
-        <div class="contact-value">@hearthlyn_services</div>
-      </a>
-
-      <!-- LinkedIn -->
-      <a href="https://linkedin.com/company/hearthlyn" class="contact-item" target="_blank">
-        <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
-        <div class="contact-label">LinkedIn</div>
-        <div class="contact-value">linkedin.com/company/hearthlyn</div>
-      </a>
-
-      <!-- Twitter -->
-      <a href="https://twitter.com/HearthLyn" class="contact-item" target="_blank">
-        <div class="contact-icon"><i class="fab fa-twitter"></i></div>
-        <div class="contact-label">Twitter</div>
-        <div class="contact-value">@HearthLyn</div>
-      </a>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="../index.html#hero">Home</a></li>
+          <li class="services-dropdown">
+            <a href="../index.html#services">Services <i class="fas fa-chevron-down"></i></a>
+            <div class="services-dropdown-content">
+              <a href="../index.html#services"><i class="fas fa-chalkboard-teacher"></i> Home Tutoring</a>
+              <a href="../index.html#services"><i class="fas fa-baby"></i> Child Care</a>
+              <a href="../index.html#services"><i class="fas fa-utensils"></i> Home Food</a>
+              <a href="../index.html#services"><i class="fas fa-tshirt"></i> Tailoring</a>
+            </div>
+          </li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="../index.html#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun"></i>
+          <i class="fas fa-moon"></i>
+        </button>
+        <!-- Mobile Menu Toggle -->
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
-  </div>
+  </header>
 
-  <footer>
-    &copy; 2025 HearthLyn — Empowering Homemakers, Enriching Communities
+  <!-- CONTACT HERO SECTION -->
+  <section class="contact-hero">
+    <div class="container">
+      <div class="contact-hero-content">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Reach out via any of the channels below.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT GRID SECTION -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Phone -->
+        <a href="tel:+917483528884" class="contact-card">
+          <div class="contact-icon phone-icon">
+            <i class="fas fa-phone-alt"></i>
+          </div>
+          <h3>Phone</h3>
+          <p>+91 7483528884</p>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:varunbabu098@gmail.com" class="contact-card">
+          <div class="contact-icon email-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>Email</h3>
+          <p>varunbabu098@gmail.com</p>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/917483528884" class="contact-card" target="_blank">
+          <div class="contact-icon whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p>+91 7483528884</p>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/hearthlyn_services" class="contact-card" target="_blank">
+          <div class="contact-icon instagram-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <h3>Instagram</h3>
+          <p>@hearthlyn_services</p>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/company/hearthlyn" class="contact-card" target="_blank">
+          <div class="contact-icon linkedin-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </div>
+          <h3>LinkedIn</h3>
+          <p>linkedin.com</p>
+        </a>
+
+        <!-- Twitter -->
+        <a href="https://twitter.com/HearthLyn" class="contact-card" target="_blank">
+          <div class="contact-icon twitter-icon">
+            <i class="fab fa-twitter"></i>
+          </div>
+          <h3>Twitter</h3>
+          <p>@HearthLyn</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" class="footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" class="footer-logo-small">
+          <p>Transforming Home Care Through Technology and Trust</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="../index.html#hero">Home</a></li>
+            <li><a href="../index.html#services">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Home Care</a></li>
+            <li><a href="#">Nursing Care</a></li>
+            <li><a href="#">Companionship</a></li>
+            <li><a href="#">Meal Preparation</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> +91 748352884</li>
+            <li><i class="fas fa-envelope"></i> varunbabu098@gmail.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> BMS Institute of Technology and Management, Doddaballapur Main Road, Avalahalli, Yelahanka, Bangalore - 560064</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 HearthLyn. All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <script src="../assets/scripts/theme.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.contact-item').forEach((el, idx) => {
-        setTimeout(() => el.classList.add('visible'), idx * 150);
-      });
-    });
-  </script>
+  <!-- Main JavaScript -->
+  <script src="../assets/scripts/main.js"></script>
 </body>
 </html>
