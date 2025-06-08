@@ -8,19 +8,19 @@
   ],
   "routes": [
     {
-      "src": "/",
-      "dest": "/client/pages/index.html"
+      "handle": "filesystem"
     },
     {
       "src": "/assets/(.*)",
-      "dest": "/client/assets/$1",
-      "headers": {
-        "cache-control": "public, max-age=31536000, immutable"
-      }
+      "dest": "/client/assets/$1"
     },
     {
       "src": "/(.*)",
       "dest": "/client/pages/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/client/pages/index.html"
     }
   ]
 } 
