@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HearthLyn • Contact Us</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family:'Poppins',sans-serif;
+      background:#e3f2fd;
+      color:#333;
+      line-height:1.6;
+    }
+    .container {
+      width:90%; max-width:800px; margin:3rem auto;
+      text-align:center;
+    }
+    h1 { color:#039be5; margin-bottom:1rem; }
+    p.subtitle { color:#555; margin-bottom:2rem; }
+    a { text-decoration:none; color:inherit; }
+
+    /* Theme Toggle Button */
+    .theme-toggle {
+      background: transparent;
+      border: 2px solid #039be5;
+      color: #039be5;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .theme-toggle i {
+      font-size: 1.2rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .theme-toggle:hover {
+      background: #039be5;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    [data-theme="dark"] .theme-toggle {
+      border-color: #ffd700;
+      color: #ffd700;
+    }
+
+    [data-theme="dark"] .theme-toggle:hover {
+      background: #ffd700;
+      color: #333;
+    }
+
+    /* Dark Theme Styles */
+    [data-theme="dark"] {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    [data-theme="dark"] h1 {
+      color: #ffd700;
+    }
+
+    [data-theme="dark"] .subtitle {
+      color: #ccc;
+    }
+
+    [data-theme="dark"] .contact-item {
+      background: #2d2d2d;
+    }
+
+    [data-theme="dark"] .contact-icon {
+      color: #ffd700;
+    }
+
+    [data-theme="dark"] .contact-label {
+      color: #ffd700;
+    }
+
+    [data-theme="dark"] .contact-value {
+      color: #ccc;
+    }
+
+    .contact-grid {
+      display:grid; grid-template-columns:1fr 1fr; gap:2rem;
+    }
+    .contact-item {
+      display:flex; flex-direction:column; align-items:center;
+      background:#fff; border-radius:8px; padding:1.5rem;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
+      opacity:0; transform: translateY(20px);
+      transition:opacity .6s ease-out, transform .6s ease-out;
+    }
+    .contact-item.visible {
+      opacity:1; transform: translateY(0);
+    }
+    .contact-icon {
+      font-size:2.5rem; color:#039be5; margin-bottom:1rem;
+      transition:transform .3s;
+    }
+    .contact-item:hover .contact-icon {
+      transform: scale(1.2);
+    }
+    .contact-label {
+      font-weight:600; margin-bottom:.5rem; color:#0277bd;
+      font-size:1.1rem;
+    }
+    .contact-value {
+      color:#555; font-size:.95rem; word-break:break-word;
+    }
+  
+    footer {
+      text-align:center; margin:4rem 0 2rem;
+      color:#777; font-size:.9rem;
+    }
+
+    @media(max-width:600px) {
+      .contact-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p class="subtitle">We'd love to hear from you! Reach out via any of the channels below.</p>
+
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" style="position: fixed; top: 20px; right: 20px;">
+      <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="contact-grid">
+      <!-- Phone -->
+      <a href="tel:+919876543210" class="contact-item">
+        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+91 7483528884</div>
+      </a>
+
+      <!-- Email -->
+      <a href="mailto:support@hearthlyn.com" class="contact-item">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">varunbabu098@gmail.com</div>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/919123456789" class="contact-item" target="_blank">
+        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="contact-label">WhatsApp</div>
+        <div class="contact-value">+91 7483528884</div>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/hearthlyn_services" class="contact-item" target="_blank">
+        <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+        <div class="contact-label">Instagram</div>
+        <div class="contact-value">@hearthlyn_services</div>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/company/hearthlyn" class="contact-item" target="_blank">
+        <div class="contact-icon"><i class="fab fa-linkedin-in"></i></div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">linkedin.com/company/hearthlyn</div>
+      </a>
+
+      <!-- Twitter -->
+      <a href="https://twitter.com/HearthLyn" class="contact-item" target="_blank">
+        <div class="contact-icon"><i class="fab fa-twitter"></i></div>
+        <div class="contact-label">Twitter</div>
+        <div class="contact-value">@HearthLyn</div>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 HearthLyn — Empowering Homemakers, Enriching Communities
+  </footer>
+
+  <script src="../assets/scripts/theme.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.contact-item').forEach((el, idx) => {
+        setTimeout(() => el.classList.add('visible'), idx * 150);
+      });
+    });
+  </script>
+</body>
+</html>

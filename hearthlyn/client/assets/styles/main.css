@@ -54,18 +54,52 @@
    
    /* Theme Toggle Button */
    .theme-toggle {
-     background: none;
-     border: none;
-     color: var(--text-color);
+     background: var(--card-bg);
+     border: 2px solid var(--primary-color);
+     color: var(--primary-color);
      font-size: 1.2rem;
      cursor: pointer;
      padding: 8px;
      border-radius: 50%;
+     width: 40px;
+     height: 40px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all 0.3s ease;
+     margin-right: 10px;
+     position: relative;
+   }
+   
+   .theme-toggle i {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     font-size: 1.2rem;
+     color: var(--primary-color);
      transition: all 0.3s ease;
    }
    
    .theme-toggle:hover {
-     background-color: var(--border-color);
+     background-color: var(--primary-color);
+     transform: scale(1.1);
+   }
+   
+   .theme-toggle:hover i {
+     color: white !important;
+   }
+   
+   [data-theme="dark"] .theme-toggle {
+     border-color: var(--primary-dark);
+   }
+   
+   [data-theme="dark"] .theme-toggle i {
+     color: #fbbf24;
+   }
+   
+   [data-theme="dark"] .theme-toggle:hover {
+     background-color: var(--primary-dark);
    }
    
    /* BUTTON STYLES */

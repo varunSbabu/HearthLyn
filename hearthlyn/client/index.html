@@ -15,13 +15,13 @@
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-p3LkXrgG1aqXnDhWlX9zP+1fdib4HyCrGDlUYhM8CsW0s3ys0h31fefUoasZoCCgqdk0wIjOZl1XQ/SZ3+DmZA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
   />
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="assets/styles/main.css" />
+
+  <!-- Theme Script -->
+  <script src="assets/scripts/theme.js"></script>
 
   <style>
     /* WhatsApp Button Styles */
@@ -57,6 +57,31 @@
       object-fit: contain;
     }
 
+    /* Theme Toggle Button Styles */
+    .theme-toggle {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-right: 10px;
+    }
+
+    .theme-toggle i {
+      font-size: 1.2rem;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
     @media screen and (max-width: 767px) {
       .whatsapp-float {
         width: 50px;
@@ -90,18 +115,18 @@
           <li class="services-dropdown">
             <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
             <div class="services-dropdown-content">
-              <a href="./pages/hometutoring.html"><i class="fas fa-chalkboard-teacher"></i> Home Tutoring</a>
-              <a href="./pages/babycare.html"><i class="fas fa-baby"></i> Child Care</a>
-              <a href="./pages/homefood.html"><i class="fas fa-utensils"></i> Home Food</a>
-              <a href="./pages/tiloring.html"><i class="fas fa-tshirt"></i> Tailoring</a>
+              <a href="pages/hometutoring.html"><i class="fas fa-chalkboard-teacher"></i> Home Tutoring</a>
+              <a href="pages/babycare.html"><i class="fas fa-baby"></i> Child Care</a>
+              <a href="pages/homefood.html"><i class="fas fa-utensils"></i> Home Food</a>
+              <a href="pages/tiloring.html"><i class="fas fa-tshirt"></i> Tailoring</a>
             </div>
           </li>
           <li><a href="pages/about.html">About Us</a></li>
-          <li><a href="../client/pages/contactus.html">Contact Us</a></li>
+          <li><a href="./pages/contactus.html">Contact Us</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <i class="fas fa-moon"></i>
         </button>
         <a href="pages/login.html" class="btn btn-outline">Login</a>

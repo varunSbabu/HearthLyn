@@ -14,14 +14,62 @@
   <!-- FontAwesome for icons -->
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-p3LkXrgG1aqXnDhWlX9zP+1fdib4HyCrGDlUYhM8CsW0s3ys0h31fefUoasZoCCgqdk0wIjOZl1XQ/SZ3+DmZA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="../assets/styles/main.css" />
+
+  <!-- Theme Script -->
+  <script src="../assets/scripts/theme.js"></script>
+
+  <style>
+    /* Theme Toggle Button Styles */
+    .theme-toggle {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-right: 10px;
+      padding: 0;
+      position: relative;
+    }
+
+    .theme-toggle i {
+      font-size: 1.2rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    [data-theme="dark"] .theme-toggle {
+      border-color: #fbbf24;
+      color: #fbbf24;
+    }
+
+    [data-theme="dark"] .theme-toggle:hover {
+      background-color: #fbbf24;
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <!-- NAVBAR -->
@@ -39,13 +87,10 @@
         </ul>
       </nav>
       <div class="nav-cta">
-        <div class="nav-actions">
-          <button id="theme-toggle" class="theme-toggle-btn">
-            <i class="fas fa-moon light-icon"></i>
-            <i class="fas fa-sun dark-icon"></i>
-          </button>
-          <a href="login.html" class="btn btn-tertiary">Log In</a>
-        </div>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn btn-tertiary">Log In</a>
         <!-- Mobile Menu Toggle -->
         <button class="hamburger" id="hamburger">
           <i class="fas fa-bars"></i>
