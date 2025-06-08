@@ -8,8 +8,16 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "/client/pages/index.html"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/client/assets/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/client/$1"
+      "dest": "/client/pages/$1"
     }
   ]
 } 
