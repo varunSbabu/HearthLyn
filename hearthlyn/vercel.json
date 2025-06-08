@@ -9,15 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/client/pages/$1"
-    },
-    {
-      "src": "/",
-      "dest": "/client/pages/index.html"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": "/client/assets/$1"
+      "dest": "/client/$1"
     }
   ]
 } 
