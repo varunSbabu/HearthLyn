@@ -18,10 +18,10 @@
   />
 
   <!-- Main CSS -->
-  <link rel="stylesheet" href="assets/styles/main.css" />
+  <link rel="stylesheet" href="../assets/styles/main.css" />
 
   <!-- Theme Script -->
-  <script src="assets/scripts/theme.js"></script>
+  <script src="../assets/scripts/theme.js"></script>
 
   <style>
     /* WhatsApp Button Styles */
@@ -82,16 +82,185 @@
       color: white;
     }
 
-    @media screen and (max-width: 767px) {
+    /* Responsive Styles */
+    @media screen and (max-width: 1024px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .hero-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+      }
+
+      .hero-text {
+        max-width: 100%;
+      }
+
+      .hero-image {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .nav-container {
+        padding: 1rem 0;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--bg-color);
+        padding: 2rem;
+        transition: 0.3s ease;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+      }
+
+      .nav-links.active {
+        right: 0;
+      }
+
+      .nav-links ul {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .services-dropdown-content {
+        position: static;
+        box-shadow: none;
+        padding: 1rem 0;
+        display: none;
+      }
+
+      .services-dropdown.active .services-dropdown-content {
+        display: block;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+
+      .footer-links ul {
+        align-items: center;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .join-btn, .connect-nearby-btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .feature-card {
+        padding: 1.5rem;
+      }
+
+      .gallery-caption {
+        padding: 1rem;
+      }
+
+      .gallery-caption h3 {
+        font-size: 1.2rem;
+      }
+
       .whatsapp-float {
         width: 50px;
         height: 50px;
         bottom: 20px;
         right: 20px;
       }
+
       .whatsapp-float img {
         width: 30px;
         height: 30px;
+      }
+    }
+
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+    }
+
+    .mobile-menu-overlay.active {
+      display: block;
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Improved Touch Targets */
+    @media (hover: none) {
+      .nav-links a,
+      .services-dropdown-content a,
+      .footer-links a {
+        padding: 0.5rem 0;
+      }
+
+      .btn, 
+      .join-btn, 
+      .connect-nearby-btn {
+        padding: 0.8rem 1.5rem;
       }
     }
   </style>
@@ -99,14 +268,14 @@
 <body>
   <!-- WhatsApp Button -->
   <a href="https://wa.me/917483528884" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <img src="assets/images/WhatsApp.png" alt="WhatsApp" />
+    <img src="../assets/images/WhatsApp.png" alt="WhatsApp" />
   </a>
 
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="./index.html" class="logo">
-        <img src="assets/images/logo.jpg" alt="HearthLyn Logo" />
+        <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" />
         <span>HearthLyn</span>
       </a>
       <nav class="nav-links">
@@ -115,21 +284,21 @@
           <li class="services-dropdown">
             <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
             <div class="services-dropdown-content">
-              <a href="pages/hometutoring.html"><i class="fas fa-chalkboard-teacher"></i> Home Tutoring</a>
-              <a href="pages/babycare.html"><i class="fas fa-baby"></i> Child Care</a>
-              <a href="pages/homefood.html"><i class="fas fa-utensils"></i> Home Food</a>
-              <a href="pages/tiloring.html"><i class="fas fa-tshirt"></i> Tailoring</a>
+              <a href="./hometutoring.html"><i class="fas fa-chalkboard-teacher"></i> Home Tutoring</a>
+              <a href="./babycare.html"><i class="fas fa-baby"></i> Child Care</a>
+              <a href="./homefood.html"><i class="fas fa-utensils"></i> Home Food</a>
+              <a href="./tiloring.html"><i class="fas fa-tshirt"></i> Tailoring</a>
             </div>
           </li>
-          <li><a href="./pages/about.html">About Us</a></li>
-          <li><a href="./pages/contactus.html">Contact Us</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./contactus.html">Contact Us</a></li>
         </ul>
       </nav>
       <div class="nav-cta">
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
           <i class="fas fa-moon"></i>
         </button>
-        <a href="pages/login.html" class="btn btn-outline">Login</a>
+        <a href="./login.html" class="btn btn-outline">Login</a>
         <!-- Mobile Menu Toggle -->
         <button class="hamburger" id="hamburger">
           <i class="fas fa-bars"></i>
@@ -149,16 +318,16 @@
           home-cooked meals—all from the comfort of their homes to yours.
         </p>
         <div class="hero-buttons">
-          <a href="pages/join.html" class="join-btn">
+          <a href="./join.html" class="join-btn">
             <i class="fas fa-user-plus"></i> Join Us
           </a>
-          <a href="pages/nearby.html" class="connect-nearby-btn">
+          <a href="./nearby.html" class="connect-nearby-btn">
             <i class="fas fa-location-dot"></i> Connect Nearby
           </a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="assets/images/women.jpg" alt="HearthLyn Hero" class="float-image" />
+        <img src="../assets/images/women.jpg" alt="HearthLyn Hero" class="float-image" />
       </div>
     </div>
   </section>
@@ -213,28 +382,28 @@
       <h2 class="section-title">Our Services in Action</h2>
       <div class="gallery-container">
         <div class="gallery-item">
-          <img src="assets/images/home-tutor-Bangalore.jpg" alt="Home Tutoring Services" />
+          <img src="../assets/images/home-tutor-Bangalore.jpg" alt="Home Tutoring Services" />
           <div class="gallery-caption">
             <h3>Expert Home Tutoring</h3>
             <p>Personalized learning experience in the comfort of your home</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/home-food.jpg" alt="Home Cooked Food Services" />
+          <img src="../assets/images/home-food.jpg" alt="Home Cooked Food Services" />
           <div class="gallery-caption">
             <h3>Delicious Home-Cooked Meals</h3>
             <p>Nutritious and authentic meals prepared with love</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/child-care.jpg" alt="Child Care Services" />
+          <img src="../assets/images/child-care.jpg" alt="Child Care Services" />
           <div class="gallery-caption">
             <h3>Professional Child Care</h3>
             <p>Safe and nurturing environment for your little ones</p>
           </div>
         </div>
         <div class="gallery-item">
-          <img src="assets/images/tilor.jpg" alt="Tailoring Services" />
+          <img src="../assets/images/tilor.jpg" alt="Tailoring Services" />
           <div class="gallery-caption">
             <h3>Expert Tailoring Services</h3>
             <p>Custom-made clothing with attention to detail</p>
@@ -249,7 +418,7 @@
     <div class="container footer-container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="../client/assets/images/logo.jpg" alt="HearthLyn Logo" class="footer-logo-small">
+          <img src="../assets/images/logo.jpg" alt="HearthLyn Logo" class="footer-logo-small">
           <p>Transforming Home Care Through Technology and Trust</p>
           <div class="social-links">
             <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -263,8 +432,8 @@
           <ul>
             <li><a href="../index.html#hero">Home</a></li>
             <li><a href="../index.html#services">Services</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="./about.html">About Us</a></li>
+            <li><a href="./contactus.html">Contact</a></li>
           </ul>
         </div>
         <div class="footer-links">
@@ -295,8 +464,61 @@
     </div>
   </footer>
 
+  <!-- Add this right after the body tag -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
   <!-- Main JavaScript -->
   <script src="assets/scripts/main.js"></script>
+
+  <!-- Add this script before the closing body tag -->
+  <script>
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const servicesDropdown = document.querySelector('.services-dropdown');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuOverlay.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    mobileMenuOverlay.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    // Services Dropdown for Mobile
+    servicesDropdown.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        servicesDropdown.classList.toggle('active');
+      }
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navLinks.classList.remove('active');
+          mobileMenuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        navLinks.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        servicesDropdown.classList.remove('active');
+      }
+    });
+  </script>
 </body>
 </html>
 
